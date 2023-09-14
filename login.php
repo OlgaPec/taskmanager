@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Ověření hesla
         if (verifyPassword($password, $row["pass"])) {
             // Přihlášení bylo úspěšné
-            header("Location: index_úkoly.php");
+            header("Location: index_ukoly.php");
             exit();
         } else {
           echo '<script>
