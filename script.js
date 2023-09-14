@@ -33,3 +33,60 @@ function deleteTask(taskId) {
       xhttp.send("delete-task=" + taskId);
     }
   }
+
+  // Funkce pro úpravu textu
+function editText(cell) {
+    const text = cell.textContent;
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.value = text;
+  
+    input.style.width = cell.clientWidth + 'px';
+  
+    // Přidat událost pro zachycení stisku klávesy Enter
+    input.addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+            saveText(cell, input);
+        }
+    });
+  
+  // Přidejte posluchač události na dokumentu pro kliknutí myší
+  document.addEventListener('click', function(event) {
+    // Zkontrolujte, zda kliknutí nastalo mimo buňku a input
+    if (event.target !== cell && event.target !== input) {
+        saveText(cell, input);
+    }
+  });
+  
+    cell.textContent = '';
+    cell.appendChild(input);
+    input.focus();
+  }
+  
+  // Funkce pro uložení upraveného textu
+  function saveText(cell, input) {
+    const newText = input.value;
+    const taskId = cell.parentElement.querySelector('td:first-child').textContent;
+    const column = cell.cellIndex === 1 ? 'task_name' : (cell.cellIndex === 2 ? 'podrobnosti' : 'termin'); // Rozlišení sloupců
+  // Odešlete AJAX požadavek na server s novým textem a ID úkolu
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'update_task.php', true);
+  
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const response = xhr.responseText;
+            console.log("response: ");
+            console.log(response);
+  
+            if (response === "Úkol byl úspěšně aktualizován") {
+                cell.textContent = newText;
+            } else {
+                alert("Chyba při aktualizaci úkolu ve funkci save.");
+            }
+        }
+    };
+  
+    xhr.send(`newText=${newText}&taskId=${taskId}&column=${column}`);
+  }
+  
