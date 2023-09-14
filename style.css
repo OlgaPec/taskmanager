@@ -190,3 +190,16 @@ width: 42%;
     border-radius: 4px;
     cursor: pointer;
   }
+
+  .editable-cell {
+    border: 1px solid #ccc;
+    padding: 5px;
+    cursor: pointer;
+    min-width: 150px; /* Změněná hodnota pro minimální šířku buňky */
+    max-width: 150px; 
+  }
+  
+  .editable-cell input {
+    border: none;
+    max-width: 90%; /* Ujistěte se, že šířka vstupu je 100% v rámci buňky */
+  }
