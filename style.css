@@ -179,3 +179,14 @@ width: 42%;
   .hidden-column {
     display: none;
   }
+
+  /* Tlačítko pro smazání úkolu */
+  .tab_button[type="button"] {
+    padding: 6px 10px;
+    font-size: 14px;
+    border: none;
+    background-color:#AF4C50;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
