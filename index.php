@@ -18,9 +18,7 @@ index.php
     <button class="button" type="button"  onclick="showForm('login-form')">Login</button>
  
   </div>
-  
-  
-  
+    
   <!-- Formulář pro registraci (Sign in) -->
   <div id="signin-form" class="form-container" style="display: none;">
   <form  action="signin.php" method="POST">
@@ -44,7 +42,6 @@ index.php
         <button type="submit">Login</button>
       </form>
   </div>
-
 
 </body>
 </html>
