@@ -135,3 +135,47 @@ margin: 5px auto;
 padding: 5px;
 width: 42%;
   }
+
+
+   /* Obecné styly pro tabulku */
+   table {
+    width: 100%;
+    max-width: 600px; /* Omezíme maximální šířku tabulky, aby nebyla příliš roztažená na velkých obrazovkách */
+    margin: 0 auto; /* Zarovná tabulku na střed stránky */
+    border-collapse: collapse; /* Sloučí hrany buněk do jedné čáry */
+  }
+
+  /* Styly pro záhlaví tabulky */
+  th {
+    background-color:  #c4c3c3;
+    color: #fff;
+    padding: 10px;
+    text-align: left; /* Zarovnat text v hlavičce doleva */
+    white-space: nowrap; /* Zabránit zalamování textu v hlavičce */
+    width: 20%; /* Pevná šířka buňky v hlavičce */
+  }
+
+  /* Střídavé pozadí řádků pro lepší čitelnost */
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  /* Styly pro jednotlivé buňky tabulky */
+  td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 20%;
+    text-align: center;
+    overflow: hidden; /* Skryjeme přesahující text */
+  white-space: nowrap; /* Zakážeme zalamování textu */
+  text-overflow: ellipsis; /* Přidáme tří tečky pro označení, že text byl oříznut */
+  }
+
+  td:hover {
+    overflow: visible; /* Po najetí myší na buňku zobrazí celý obsah textu */
+    white-space: normal; /* Umožní zalomení textu */
+  }
+
+  .hidden-column {
+    display: none;
+  }
