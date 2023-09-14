@@ -89,4 +89,67 @@ function editText(cell) {
   
     xhr.send(`newText=${newText}&taskId=${taskId}&column=${column}`);
   }
-  
+
+  function editCell(taskId, cell) {
+    // Získejte stávající text z buňky
+    var currentValue = cell.textContent.trim();
+    
+    console.log("currentValue: ");
+    console.log(currentValue);
+    console.log("taskId: ");
+    console.log(taskId);
+    console.log("cell: ");
+    console.log(cell);
+    
+    // Vytvořte nový element select
+    var select = document.createElement('select');
+    select.name = "priorita";
+    
+    // Přidejte možnosti do rozbalovacího seznamu
+    var option1 = document.createElement('option');
+    option1.value = "Nízká";
+    option1.textContent = "Nízká";
+    select.appendChild(option1);
+    
+    var option2 = document.createElement('option');
+    option2.value = "Střední";
+    option2.textContent = "Střední";
+    select.appendChild(option2);
+    
+    var option3 = document.createElement('option');
+    option3.value = "Vysoká";
+    option3.textContent = "Vysoká";
+    select.appendChild(option3);
+    
+    // Nastavte stávající hodnotu jako vybranou možnost
+    select.value = currentValue;
+    
+    // Přidejte posluchači události "change" pro okamžité uložení změn
+    select.addEventListener('change', function () {
+      var newValue = select.value;
+      saveChanges(taskId, newValue); // Aktualizace databáze
+      cell.textContent = newValue; // Aktualizace obsahu buňky
+    });
+    
+    // Nahraďte text v buňce rozbalovacím seznamem
+    cell.innerHTML = '';
+    cell.appendChild(select);
+    }
+    
+    function saveChanges(taskId, newValue) {
+    // Vytvořte AJAX požadavek
+    var xhr1 = new XMLHttpRequest();
+    xhr1.open('POST', 'update_prior.php', true);
+    xhr1.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    
+    // Definujte obslužnou funkci pro úspěšné odeslání požadavku
+    xhr1.onload = function() {
+      if (xhr1.status === 200) {
+        // Zde můžete provést další akce po úspěšném uložení
+      }
+    };
+    
+    // Odešlete požadavek
+    xhr1.send(`taskId=${taskId}&newValue=${newValue}`);
+    }
+    
