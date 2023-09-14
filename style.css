@@ -99,3 +99,39 @@ body {
     cursor: pointer;
   }
   
+  .tasks-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 30px;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  #task-input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    display: block;
+margin: 5px auto;
+padding: 5px;
+width: 90%;
+  }
+
+  #task-input-pul  {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    display: inline-block;
+margin: 5px auto;
+padding: 5px;
+width: 42%;
+  }
