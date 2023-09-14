@@ -203,3 +203,55 @@ width: 42%;
     border: none;
     max-width: 90%; /* Ujistěte se, že šířka vstupu je 100% v rámci buňky */
   }
+
+
+  .responsive-table {
+    width: 100%;
+  }
+  
+  @media (max-width: 910px) {
+  
+    .tasks-container {
+      display: block;
+    }
+    #task-input {
+      margin-right: 10px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    /* Pro zobrazení dat jako seznam na menších obrazovkách */
+    .responsive-table tr {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .responsive-table th
+    {
+      display:none;
+    }
+    .responsive-table td {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 5px;
+      text-align: left;
+    }
+  
+    .editable-cell {
+      min-width: 100%; /* Změněná hodnota pro minimální šířku buňky */
+      max-width: 100%; 
+    }
+    /* Tlačítko pro smazání úkolu zarovnáno doprava */
+    td button {
+      text-align: right;
+      display: block;
+      margin-left: auto;
+    }
+    td {
+      overflow: visible; /* Po najetí myší na buňku zobrazí celý obsah textu */
+      white-space: normal; /* Umožní zalomení textu */
+    }
+    }
+  
