@@ -1,5 +1,5 @@
 # taskmanager
-User can sign in od log in to the task manager, add new tasks, change existing, delete old tasks or logout. 
+User can sign in or log in to the task manager, add new tasks, change existing, delete old tasks or logout. 
 
 DB settings is in file config.php
 
