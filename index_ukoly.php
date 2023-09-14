@@ -71,5 +71,54 @@
   }
   ?>
 
+<h2>Seznam úkolů:</h2>
+  <?php
+   require_once('config.php');
+  // Připojení k MySQL databázi
+  $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+  // Kontrola připojení
+  if (!$conn) {
+    die("Připojení k databázi selhalo: " . mysqli_connect_error());
+  }
+  if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+  }
+  // Dotaz pro získání úkolů z tabulky
+  $sql = "SELECT * FROM tasks WHERE username='$username' ORDER BY termin, priorita DESC";
+
+  // Spuštění dotazu
+  $result = mysqli_query($conn, $sql);
+
+  // Kontrola, zda jsou k dispozici úkoly
+  if (mysqli_num_rows($result) > 0) {
+   // Výpis úkolů jako tabulka
+
+   echo "<table class='responsive-table'>";
+echo "<tr><th class='hidden-column'>ID</th><th>Úkol</th><th>Podrobnosti</th><th>Termín</th><th>Priorita</th><th>Akce</th></tr>";
+while ($row = mysqli_fetch_assoc($result)) {
+  echo "<tr>";
+  echo '<td class="hidden-column" name="task_id">' . $row['id'] . '</td>';
+  echo '<td class="editable-cell" name="task_name" onclick="editText(this)">' . $row['task_name'] . '</td>';
+  echo '<td class="editable-cell" name="podrobnosti" onclick="editText(this)">' . $row['podrobnosti'] . '</td>'; // Nový sloupec
+  echo '<td class="editable-cell" name="termin" onclick="editText(this)">' . $row['termin'] . '</td>';
+
+ echo '<td class="editable-cell" name="priorita" onclick="editCell(' . $row['id'] . ', this)">' . $row['priorita'] . '</td>';
+
+ echo "<td><button class='tab_button' type='button' data-task-id='" . $row["id"] . "' onclick='deleteTask(" . $row["id"] . ")'>Smazat</button></td>";
+  echo "</tr>";
+}
+echo "</table>";
+
+  } else {
+    echo "Žádné úkoly k zobrazení.";
+  }
+
+  // Uzavření spojení s databází
+  mysqli_close($conn);
+  ?>
+
+
+
   </body>
 </html>
