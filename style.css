@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  .buttons-container {
+    margin-top: 20px;
+  }
+  
+  button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #A0A0A0/*#4CAF50*/;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+    text-decoration: none;
+  }
+  
+  button:hover {
+    background-color:  #909090/*#45a049*/;
+  }
+  
+  .button-form {
+    display: inline-block;
+    margin-right: 10px;
+  }
+      /* Styly pro tlačítka */
+      .buttons-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;      
+        margin-bottom: 30px;
+  
+      }
+
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #A0A0A0/*#4CAF50*/;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        margin-right: 10px;
+        text-decoration: none;
+      }
+   /* Skryjeme formuláře na začátku */
+   .form-container {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+
+  }
+
+      /* Styly pro vstupní pole formulářů */
+      .form-container input {
+          display: block;
+    margin: 5px auto;
+    padding: 5px;
+    width: 200px;
+  }
+  
+  /* Styly pro nápisy formulářů */
+  .form-container label {
+    font-size: 16px;
+    display: block;
+  }
+
+  /* Stylování pro horní část stránky */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  /* Stylování tlačítka pro odhlášení */
+  .odhlaseni_button[type="button"] {
+    padding: 6px 10px;
+    font-size: 14px;
+    border: none;
+    background-color: #774caf;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
