@@ -209,7 +209,7 @@ width: 42%;
     width: 100%;
   }
   
-  @media (max-width: 910px) {
+  @media (max-width: 710px) {
   
     .tasks-container {
       display: block;

@@ -51,7 +51,7 @@
     }
     if (!empty($username)) {
 
-      header("Location: index_úkoly.php");
+      header("Location: index_ukoly.php");
   } 
     // Příprava dotazu pro vložení úkolu do tabulky
     $sql = "INSERT INTO tasks (username, task_name, podrobnosti, termin, priorita) VALUES ('$username', '$task', '$taskpodr','$taskterm', '$taskprior')";
