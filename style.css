@@ -180,6 +180,11 @@ width: 42%;
     display: none;
   }
 
+.tuzka {
+  width: 15%;
+  height: 15%;
+}
+
   /* Tlačítko pro smazání úkolu */
   .tab_button[type="button"] {
     padding: 6px 10px;

@@ -99,11 +99,11 @@ echo "<tr><th class='hidden-column'>ID</th><th>Úkol</th><th>Podrobnosti</th><th
 while ($row = mysqli_fetch_assoc($result)) {
   echo "<tr>";
   echo '<td class="hidden-column" name="task_id">' . $row['id'] . '</td>';
-  echo '<td class="editable-cell" name="task_name" onclick="editText(this)">' . $row['task_name'] . '</td>';
-  echo '<td class="editable-cell" name="podrobnosti" onclick="editText(this)">' . $row['podrobnosti'] . '</td>'; // Nový sloupec
-  echo '<td class="editable-cell" name="termin" onclick="editText(this)">' . $row['termin'] . '</td>';
+  echo '<td class="editable-cell" name="task_name" onclick="editText(this)">' . $row['task_name'] . '          <img class="tuzka" src="tuzka.png" alt="Editovat"></td>';
+  echo '<td class="editable-cell" name="podrobnosti" onclick="editText(this)">' . $row['podrobnosti'] . '          <img class="tuzka" src="tuzka.png" alt="Editovat"></td>'; // Nový sloupec
+  echo '<td class="editable-cell" name="termin" onclick="editText(this)">' . $row['termin'] . '          <img class="tuzka" src="tuzka.png" alt="Editovat"></td>';
 
- echo '<td class="editable-cell" name="priorita" onclick="editCell(' . $row['id'] . ', this)">' . $row['priorita'] . '</td>';
+ echo '<td class="editable-cell" name="priorita" onclick="editCell(' . $row['id'] . ', this)">' . $row['priorita'] . '          <img class="tuzka" src="tuzka.png" alt="Editovat"></td>';
 
  echo "<td><button class='tab_button' type='button' data-task-id='" . $row["id"] . "' onclick='deleteTask(" . $row["id"] . ")'>Smazat</button></td>";
   echo "</tr>";
