@@ -258,5 +258,11 @@ width: 42%;
       overflow: visible; /* Po najetí myší na buňku zobrazí celý obsah textu */
       white-space: normal; /* Umožní zalomení textu */
     }
+
+    .tuzka {
+      width: 5%;
+      height: 5%;
+    }
+
     }
   
