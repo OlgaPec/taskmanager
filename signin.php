@@ -1,11 +1,10 @@
 <?php
  require_once('config.php');
   // Zpracování formuláře po odeslání
-  if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["email"])) {
+  if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["username"]) && isset($_POST["password"]) ) {
     // Získání zadaného úkolu z formuláře
     $us = $_POST["username"];
     $pa = $_POST["password"];
-    $em = $_POST["email"];
 
     // Připojení k MySQL databázi
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -32,20 +31,21 @@ if (mysqli_num_rows($result) > 0) {
      $hashedPassword = password_hash($pa, PASSWORD_DEFAULT);
 
     // Příprava dotazu pro vložení úkolu do tabulky
-    $sql2 = "INSERT INTO users (username, pass, email) VALUES ('$us', '$hashedPassword', '$em')";
+    $sql2 = "INSERT INTO users (username, pass) VALUES ('$us', '$hashedPassword')";
     
-// Zde zpracujeme výsledek ověření a výpis do vyskakovacího okna
-if (mysqli_query($conn, $sql2)) {
-  echo '<script>
-  alert("Registrace proběhla úspěšně.");
-  window.history.back();
-  </script>';
-} else {
+   // Zde zpracujeme výsledek ověření a výpis do vyskakovacího okna
+        if (mysqli_query($conn, $sql2)) {
+            // Registrace proběhla úspěšně, takže pošleme e-mail
+            echo '<script>
+                alert("Registrace proběhla úspěšně. Potvrzovací e-mail byl odeslán.");
+                window.history.back();
+                </script>';
+            } else {
  
-  echo '<script>
-  alert("Chybné uživatelské jméno nebo heslo.");
-  window.history.back();
-  </script>';
+              echo '<script>
+              alert("Chybné uživatelské jméno nebo heslo.");
+              window.history.back();
+              </script>';
 }
 }
     // Uzavření spojení s databází
