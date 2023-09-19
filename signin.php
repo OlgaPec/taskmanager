@@ -37,7 +37,7 @@ if (mysqli_num_rows($result) > 0) {
         if (mysqli_query($conn, $sql2)) {
             // Registrace proběhla úspěšně, takže pošleme e-mail
             echo '<script>
-                alert("Registrace proběhla úspěšně. Potvrzovací e-mail byl odeslán.");
+                alert("Registrace proběhla úspěšně.");
                 window.history.back();
                 </script>';
             } else {
