@@ -38,7 +38,7 @@
     $taskpodr = $_POST["task-podrobnosti"];
     $taskterm = $_POST["task-termin"];
     $taskprior = $_POST["task-priorita"];
-
+  
   if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
   }
@@ -81,9 +81,11 @@
   if (!$conn) {
     die("Připojení k databázi selhalo: " . mysqli_connect_error());
   }
+  
   if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
   }
+
   // Dotaz pro získání úkolů z tabulky
   $sql = "SELECT * FROM tasks WHERE username='$username' ORDER BY termin, priorita DESC";
 

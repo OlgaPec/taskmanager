@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 
 <!-- Formulář pro odeslání uživatelského jména -->
-<form id="userForm" action="index_úkoly.php" method="post">
+<form id="userForm" action="index_ukoly.php" method="post">
   <input type="hidden" name="username" value="<?php echo htmlspecialchars($username); ?>">
 </form>
 <script>document.getElementById('userForm').submit();</script>
